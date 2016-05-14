@@ -1,0 +1,308 @@
+{
+  "mappings": {
+    "contribution": {
+      "properties": {
+        "dist_No": {
+          "type": "string"
+        },
+        "end_Bal": {
+          "type": "string"
+        },
+        "amountType": {
+          "type": "string"
+        },
+        "tran_Zip4": {
+          "type": "string"
+        },
+        "loan_Date1": {
+          "type": "string"
+        },
+        "loan_Date2": {
+          "type": "string"
+        },
+        "tran_NamL": {
+          "type": "string"
+        },
+        "tran_NamF": {
+          "type": "string"
+        },
+        "tran_NamS": {
+          "type": "string"
+        },
+        "tran_NamT": {
+          "type": "string"
+        },
+        "filingStartDate": {
+          "type": "string"
+        },
+        "tran_Dscr": {
+          "type": "string"
+        },
+        "intr_Emp": {
+          "type": "string"
+        },
+        "tran_Amt1": {
+          "type": "string"
+        },
+        "g_From_E_F": {
+          "type": "string"
+        },
+        "cmte_Id": {
+          "type": "string"
+        },
+        "loan_Amt8": {
+          "type": "string"
+        },
+        "amt_Incur": {
+          "type": "string"
+        },
+        "filingId": {
+          "type": "string"
+        },
+        "bakRef_TID": {
+          "type": "string"
+        },
+        "loan_Amt2": {
+          "type": "string"
+        },
+        "loan_Amt3": {
+          "type": "string"
+        },
+        "tres_Zip4": {
+          "type": "string"
+        },
+        "loan_Amt6": {
+          "type": "string"
+        },
+        "loan_Amt7": {
+          "type": "string"
+        },
+        "loan_Amt4": {
+          "type": "string"
+        },
+        "loan_Amt5": {
+          "type": "string"
+        },
+        "sup_Opp_Cd": {
+          "type": "string"
+        },
+        "intr_Adr2": {
+          "type": "string"
+        },
+        "intr_NamT": {
+          "type": "string"
+        },
+        "intr_NamS": {
+          "type": "string"
+        },
+        "intr_NamL": {
+          "type": "string"
+        },
+        "externalId": {
+          "type": "string"
+        },
+        "intr_NamF": {
+          "type": "string"
+        },
+        "filingEndDate": {
+          "type": "string"
+        },
+        "transactionType": {
+          "type": "string"
+        },
+        "tres_NamL": {
+          "type": "string"
+        },
+        "calculated_Amount": {
+          "type": "string"
+        },
+        "tres_NamF": {
+          "type": "string"
+        },
+        "tres_NamS": {
+          "type": "string"
+        },
+        "tres_NamT": {
+          "type": "string"
+        },
+        "tres_Adr1": {
+          "type": "string"
+        },
+        "tran_Emp": {
+          "type": "string"
+        },
+        "tran_Adr2": {
+          "type": "string"
+        },
+        "tres_ST": {
+          "type": "string"
+        },
+        "intr_ST": {
+          "type": "string"
+        },
+        "intr_Zip4": {
+          "type": "string"
+        },
+        "intr_Adr1": {
+          "type": "string"
+        },
+        "elec_Date": {
+          "type": "string"
+        },
+        "tran_Amt2": {
+          "type": "string"
+        },
+        "xref_SchNum": {
+          "type": "string"
+        },
+        "int_Rate": {
+          "type": "string"
+        },
+        "tran_Code": {
+          "type": "string"
+        },
+        "bal_Juris": {
+          "type": "string"
+        },
+        "loan_Amt1": {
+          "type": "string"
+        },
+        "tran_ChkNo": {
+          "type": "string"
+        },
+        "lender_Name": {
+          "type": "string"
+        },
+        "tran_Date": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "string"
+        },
+        "tran_Type": {
+          "type": "string"
+        },
+        "longitude": {
+          "type": "string"
+        },
+        "intr_City": {
+          "type": "string"
+        },
+        "tran_Adr1": {
+          "type": "string"
+        },
+        "int_CmteId": {
+          "type": "string"
+        },
+        "calculated_Date": {
+          "type": "string"
+        },
+        "bal_Name": {
+          "type": "string"
+        },
+        "office_Dscr": {
+          "type": "string"
+        },
+        "loan_Rate": {
+          "type": "string"
+        },
+        "filerName": {
+          "type": "string"
+        },
+        "beg_Bal": {
+          "type": "string"
+        },
+        "memo_RefNo": {
+          "type": "string"
+        },
+        "tran_Occ": {
+          "type": "string"
+        },
+        "tran_Date1": {
+          "type": "string"
+        },
+        "amt_Paid": {
+          "type": "string"
+        },
+        "filerStateId": {
+          "type": "string"
+        },
+        "tres_Adr2": {
+          "type": "string"
+        },
+        "intr_Occ": {
+          "type": "string"
+        },
+        "bal_Num": {
+          "type": "string"
+        },
+        "cand_NamF": {
+          "type": "string"
+        },
+        "cand_NamL": {
+          "type": "string"
+        },
+        "cand_NamS": {
+          "type": "string"
+        },
+        "cand_NamT": {
+          "type": "string"
+        },
+        "tres_City": {
+          "type": "string"
+        },
+        "juris_Dscr": {
+          "type": "string"
+        },
+        "off_S_H_Cd": {
+          "type": "string"
+        },
+        "juris_Cd": {
+          "type": "string"
+        },
+        "office_Cd": {
+          "type": "string"
+        },
+        "tran_City": {
+          "type": "string"
+        },
+        "tran_ST": {
+          "type": "string"
+        },
+        "agency_shortcut": {
+          "type": "string"
+        },
+        "tran_Id": {
+          "type": "string"
+        },
+        "memo_Code": {
+          "type": "string"
+        },
+        "intr_Self": {
+          "type": "string"
+        },
+        "xref_Match": {
+          "type": "string"
+        },
+        "form_Type": {
+          "type": "string"
+        },
+        "rec_Type": {
+          "type": "string"
+        },
+        "filerLocalId": {
+          "type": "string"
+        },
+        "entity_Cd": {
+          "type": "string"
+        },
+        "netFileKey": {
+          "type": "string"
+        },
+        "tran_Self": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

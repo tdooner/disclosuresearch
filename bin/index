@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# vim: ft=ruby
+$LOAD_PATH << File.expand_path('../../lib', __FILE__)
+
+require 'csv'
+require 'uri'
+require 'json'
+require 'net/http'
+
+require 'netfile_reader'
+require 'elasticsearch_client'
+
+@client = ElasticsearchClient.new
+@client.initialize_index
+
+@client.bulk_index(
+  NetfileReader.new('netfile_cal201_transaction.csv.gz')
+)
