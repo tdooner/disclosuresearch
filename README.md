@@ -13,3 +13,6 @@ brew update && brew install node-build nodenv
 nodenv install
 npm install
 ```
+
+## Run stuff:
+npm run dev

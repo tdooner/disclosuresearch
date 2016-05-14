@@ -4,7 +4,7 @@ import SearchUtil from 'app/utils/search_util';
 
 const App = React.createClass({
   getInitialState() {
-    return { search: '' };
+    return { search: '', results: [] };
   },
 
   _search(e) {
@@ -22,11 +22,16 @@ const App = React.createClass({
   _renderResult(result) {
     return (
       <div>
-        {
-          Object.keys(result._source).map(
-            key => <span><b>{key}</b>: {result._source[key]}</span>
-          )
-        }
+        <ul>{Object.keys(result._source).map((key) => {
+          const highlight = result.highlight[key];
+
+          if (highlight) {
+            return <li><b>{key}</b>: <span dangerouslySetInnerHTML={{ __html: highlight}} /></li>;
+          } else {
+            return <li><b>{key}</b>: {result._source[key]}</li>;
+          }
+        })}
+        </ul>
       </div>
     );
   },
