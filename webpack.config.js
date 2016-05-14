@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var WebpackTmuxStatus = require('webpack-tmux-status');
 
 module.exports = {
   devtool: 'eval',
@@ -10,7 +11,7 @@ module.exports = {
   ],
   resolve: {
     root: [
-      path.join(__dirname, 'app'),
+      __dirname,
     ],
     extensions: [
       '',
@@ -24,7 +25,8 @@ module.exports = {
     publicPath: '/public/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new WebpackTmuxStatus(),
   ],
   module: {
     loaders: [{
