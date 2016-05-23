@@ -16,3 +16,8 @@ npm install
 
 ## Run stuff:
 npm run dev
+
+# Needed functionality:
+1. customizable form types
+2. row hash key so that duplicate rows can be filtered out
+  - perhaps some kind of cardinality metric

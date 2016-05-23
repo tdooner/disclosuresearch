@@ -13,6 +13,10 @@ require 'elasticsearch_client'
 @client = ElasticsearchClient.new
 @client.initialize_index
 
+@client.on_failure do |error|
+  puts "Failed to index: #{error['reason']} -- #{error['caused_by']['reason']}"
+end
+
 @client.bulk_index(
   NetfileReader.new('netfile_cal201_transaction.csv.gz')
 )

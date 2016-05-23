@@ -1,6 +1,11 @@
 class ElasticsearchClient
   def initialize(url = (ENV['ELASTICSEARCH_HOST'] || 'http://127.0.0.1:9200'))
     @url = URI(url)
+    @on_failure = Proc.new {}
+  end
+
+  def on_failure(&block)
+    @on_failure = block
   end
 
   def initialize_index
@@ -35,7 +40,8 @@ class ElasticsearchClient
             end.join("\n") + "\n"
           end
         )
-        puts resp.inspect
+        failed = JSON.parse(resp.body)['items'].find_all { |i| i['create']['status'] != 201 }
+        failed.map { |i| i['create']['error'] }.each(&@on_failure)
       end
     end
   end

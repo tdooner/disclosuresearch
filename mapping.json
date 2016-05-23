@@ -3,22 +3,22 @@
     "contribution": {
       "properties": {
         "dist_No": {
-          "type": "string"
+          "type": "integer"
         },
         "end_Bal": {
-          "type": "string"
+          "type": "float"
         },
         "amountType": {
-          "type": "string"
+          "type": "integer"
         },
         "tran_Zip4": {
           "type": "string"
         },
         "loan_Date1": {
-          "type": "string"
+          "type": "date"
         },
         "loan_Date2": {
-          "type": "string"
+          "type": "date"
         },
         "tran_NamL": {
           "type": "string"
@@ -33,7 +33,7 @@
           "type": "string"
         },
         "filingStartDate": {
-          "type": "string"
+          "type": "date"
         },
         "tran_Dscr": {
           "type": "string"
@@ -42,7 +42,7 @@
           "type": "string"
         },
         "tran_Amt1": {
-          "type": "string"
+          "type": "float"
         },
         "g_From_E_F": {
           "type": "string"
@@ -54,19 +54,19 @@
           "type": "string"
         },
         "amt_Incur": {
-          "type": "string"
+          "type": "float"
         },
         "filingId": {
-          "type": "string"
+          "type": "integer"
         },
         "bakRef_TID": {
           "type": "string"
         },
         "loan_Amt2": {
-          "type": "string"
+          "type": "float"
         },
         "loan_Amt3": {
-          "type": "string"
+          "type": "float"
         },
         "tres_Zip4": {
           "type": "string"
@@ -78,7 +78,7 @@
           "type": "string"
         },
         "loan_Amt4": {
-          "type": "string"
+          "type": "float"
         },
         "loan_Amt5": {
           "type": "string"
@@ -105,16 +105,16 @@
           "type": "string"
         },
         "filingEndDate": {
-          "type": "string"
+          "type": "date"
         },
         "transactionType": {
-          "type": "string"
+          "type": "integer"
         },
         "tres_NamL": {
           "type": "string"
         },
         "calculated_Amount": {
-          "type": "string"
+          "type": "float"
         },
         "tres_NamF": {
           "type": "string"
@@ -147,10 +147,10 @@
           "type": "string"
         },
         "elec_Date": {
-          "type": "string"
+          "type": "date"
         },
         "tran_Amt2": {
-          "type": "string"
+          "type": "float"
         },
         "xref_SchNum": {
           "type": "string"
@@ -165,7 +165,7 @@
           "type": "string"
         },
         "loan_Amt1": {
-          "type": "string"
+          "type": "float"
         },
         "tran_ChkNo": {
           "type": "string"
@@ -174,16 +174,16 @@
           "type": "string"
         },
         "tran_Date": {
-          "type": "string"
+          "type": "date"
         },
         "latitude": {
-          "type": "string"
+          "type": "integer"
         },
         "tran_Type": {
           "type": "string"
         },
         "longitude": {
-          "type": "string"
+          "type": "integer"
         },
         "intr_City": {
           "type": "string"
@@ -195,7 +195,7 @@
           "type": "string"
         },
         "calculated_Date": {
-          "type": "string"
+          "type": "date"
         },
         "bal_Name": {
           "type": "string"
@@ -204,13 +204,13 @@
           "type": "string"
         },
         "loan_Rate": {
-          "type": "string"
+          "type": "float"
         },
         "filerName": {
           "type": "string"
         },
         "beg_Bal": {
-          "type": "string"
+          "type": "float"
         },
         "memo_RefNo": {
           "type": "string"
@@ -219,10 +219,10 @@
           "type": "string"
         },
         "tran_Date1": {
-          "type": "string"
+          "type": "date"
         },
         "amt_Paid": {
-          "type": "string"
+          "type": "float"
         },
         "filerStateId": {
           "type": "string"
@@ -269,10 +269,13 @@
         "tran_ST": {
           "type": "string"
         },
-        "agency_shortcut": {
+        "entity_Cd": {
           "type": "string"
         },
         "tran_Id": {
+          "type": "string"
+        },
+        "agency_shortcut": {
           "type": "string"
         },
         "memo_Code": {
@@ -291,9 +294,6 @@
           "type": "string"
         },
         "filerLocalId": {
-          "type": "string"
-        },
-        "entity_Cd": {
           "type": "string"
         },
         "netFileKey": {
