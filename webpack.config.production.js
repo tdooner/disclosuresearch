@@ -23,7 +23,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      ELASTICSEARCH_BASE: 'http://admin.caciviclab.org/elasticsearch',
+      ELASTICSEARCH_BASE: '"http://admin.caciviclab.org/elasticsearch"',
     }),
   ],
   module: {

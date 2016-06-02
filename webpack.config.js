@@ -28,7 +28,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new WebpackTmuxStatus(),
     new webpack.DefinePlugin({
-      ELASTICSEARCH_BASE: 'http://0.0.0.0:9200',
+      ELASTICSEARCH_BASE: '"http://0.0.0.0:9200"',
     }),
   ],
   module: {
