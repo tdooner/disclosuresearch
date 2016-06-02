@@ -17,7 +17,7 @@ const SearchUtil = {
     }
 
     return $.post({
-      url: 'http://127.0.0.1:9200/netfile/_search',
+      url: ELASTICSEARCH_BASE + '/netfile/_search',
       contentType: 'application/json',
       data: JSON.stringify({
         query: {
@@ -48,7 +48,7 @@ const SearchUtil = {
 
   search(query) {
     return $.post({
-      url: 'http://127.0.0.1:9200/netfile/_search',
+      url: ELASTICSEARCH_BASE + '/netfile/_search',
       contentType: 'application/json',
       data: JSON.stringify({
         query: {
