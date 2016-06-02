@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SearchUtil from 'app/utils/search_util';
+import debounce from 'app/utils/debounce';
 
 const App = React.createClass({
   getInitialState() {
@@ -11,6 +12,10 @@ const App = React.createClass({
       aggResults: {},
       filters: {},
     };
+  },
+
+  componentWillMount() {
+    this._debouncedSearch = debounce(this._search, 200);
   },
 
   _search() {
@@ -25,16 +30,17 @@ const App = React.createClass({
         });
       });
       */
+
     SearchUtil.aggregateByFiler({
       query: this._searchField.value,
       filters: this.state.filters,
     }).then(results => {
-        this.setState({
-          numTotalResults: results.hits.total,
-          results: results.hits.hits,
-          aggResults: results.aggregations,
-        })
-      });
+      this.setState({
+        numTotalResults: results.hits.total,
+        results: results.hits.hits,
+        aggResults: results.aggregations,
+      })
+    });
   },
 
   _addFilter(key, value) {
@@ -51,7 +57,7 @@ const App = React.createClass({
 
   componentDidUpdate(nextProps, nextState) {
     if (Object.keys(this.state.filters).length != Object.keys(nextState.filters).length) {
-      this._search();
+      this._debouncedSearch();
     }
   },
 
@@ -59,7 +65,7 @@ const App = React.createClass({
     return (
       <div>
         <ul>{Object.keys(result._source).map((key) => {
-          const highlight = result.highlight[key];
+          const highlight = result.highlight && result.highlight[key];
           const value = result._source[key];
 
           if (this.state.filters[key]) {
@@ -79,7 +85,7 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <input onKeyUp={this._search} ref={(el) => this._searchField = el} />
+        <input onKeyUp={this._debouncedSearch} ref={(el) => this._searchField = el} />
         <div>
           results: {this.state.numTotalResults} / {
             this.state.aggResults &&
