@@ -28,6 +28,7 @@ const SearchUtil = {
         sort: [
           { tran_Amt1: { order: 'desc' } },
         ],
+        size: 100,
         highlight: {
           fields: {
             '*': {}
@@ -54,6 +55,7 @@ const SearchUtil = {
         query: {
           match: { '_all': query }
         },
+        size: 100,
         highlight: {
           fields: {
             '*': {}
