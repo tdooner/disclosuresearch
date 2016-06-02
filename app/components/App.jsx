@@ -1,5 +1,7 @@
 import React from 'react';
+import _ from 'lodash';
 
+import Result from 'app/components/Result';
 import SearchUtil from 'app/utils/search_util';
 import debounce from 'app/utils/debounce';
 
@@ -11,25 +13,24 @@ const App = React.createClass({
       results: [],
       aggResults: {},
       filters: {},
+      properties: [],
+      enabledProperties: [
+        'tran_NamL',
+        'tran_Id',
+        'tran_Amt1',
+      ]
     };
   },
 
   componentWillMount() {
     this._debouncedSearch = debounce(this._search, 200);
+
+    SearchUtil.getProperties()
+      .then(properties => this.setState({ properties }));
   },
 
   _search() {
     this.setState({ search: this._searchField.value });
-
-    /*
-    SearchUtil
-      .search(e.target.value)
-      .then(results => {
-        this.setState({
-          results: results.hits.hits
-        });
-      });
-      */
 
     SearchUtil.aggregateByFiler({
       query: this._searchField.value,
@@ -59,33 +60,40 @@ const App = React.createClass({
     if (Object.keys(this.state.filters).length != Object.keys(nextState.filters).length) {
       this._debouncedSearch();
     }
+
+    if (this.state.properties) {
+      for (const property of this.state.enabledProperties) {
+        if (this.state.properties.indexOf(property) === -1) {
+          throw new Error(`Enabled Property ${property} is not valid! Valid: ` +
+                          `${this.state.properties.join(' ')}`);
+        }
+      }
+    }
   },
 
-  _renderResult(result) {
-    return (
-      <div>
-        <ul>{Object.keys(result._source).map((key) => {
-          const highlight = result.highlight && result.highlight[key];
-          const value = result._source[key];
+  _addField(e) {
+    const value = e.target.value;
 
-          if (this.state.filters[key]) {
-            return <li onClick={this._removeFilter.bind(this, key)}><em><b>{key}</b>: {value}</em></li>;
-          } else if (highlight) {
-            return <li onClick={this._addFilter.bind(this, key, value)}><b>{key}</b>:
-              <span dangerouslySetInnerHTML={{ __html: highlight}} /></li>;
-          } else {
-            return <li onClick={this._addFilter.bind(this, key, value)}><b>{key}</b>: {value}</li>;
-          }
-        })}
-        </ul>
-      </div>
-    );
+    if (this.state.properties.indexOf(value) === -1) {
+      return;
+    }
+
+    this.setState({
+      enabledProperties: _.union(this.state.enabledProperties, [value]),
+    });
   },
 
   render() {
     return (
       <div>
         <input onKeyUp={this._debouncedSearch} ref={(el) => this._searchField = el} />
+        <select onChange={this._addField}>
+          <option key={-1} value={null}>add field</option>
+          {this.state.properties.map(
+            (property, i) => <option key={i} value={property}>{property}</option>
+          )}
+        </select>
+
         <div>
           results: {this.state.numTotalResults} / {
             this.state.aggResults &&
@@ -93,7 +101,15 @@ const App = React.createClass({
                 <span>total contributions: {Math.round(this.state.aggResults.contributions.sum)}</span>
                 }
 
-          {this.state.results.map(this._renderResult)}
+                {this.state.results.map(result =>
+                  <Result
+                    result={result}
+                    filters={this.state.filters}
+                    enabledProperties={this.state.enabledProperties}
+                    handleAddFilter={this._addFilter}
+                    handleRemoveFilter={this._removeFilter}
+                  />
+                )}
         </div>
       </div>
     );

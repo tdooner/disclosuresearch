@@ -63,6 +63,25 @@ const SearchUtil = {
         }
       })
     });
+  },
+
+  getMapping() {
+    const promise = $.Deferred();
+    $.getJSON({
+      url: ELASTICSEARCH_BASE + '/netfile/_mapping/contribution',
+    }).then(result => promise.resolve(result.netfile.mappings.contribution));
+
+    return promise.promise();
+  },
+
+  getProperties() {
+    const promise = $.Deferred();
+
+    SearchUtil.getMapping().then(mapping => {
+      promise.resolve(Object.keys(mapping.properties));
+    });
+
+    return promise.promise();
   }
 };
 
